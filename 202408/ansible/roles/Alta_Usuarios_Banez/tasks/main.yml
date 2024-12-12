@@ -1,0 +1,22 @@
+---
+# tasks file for Alta_Usuarios_Banez
+
+- name: "Nos fijamos si los grupos existen"
+  become: yes
+  group:
+    name: "{{ item }}"
+    state: present
+  with_items:
+      - GProfesores
+      - GAlumnos
+
+- name: "Crear usuarios"
+  become: yes
+  user:
+    name: "{{ item.name }}"
+    groups: "{{ item.group }}"
+    state: present
+  with_items:
+    - { name: 'Profesor', group: 'GProfesores' }
+    - { name: 'Alumno', group: 'GAlumnos' }
+

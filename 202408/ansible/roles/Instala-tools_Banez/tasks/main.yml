@@ -1,0 +1,15 @@
+---
+# tasks file for Instala-tools_Banez
+
+
+- name: "Instalar los siguientes programas requereidos"
+  become: yes
+  apt:
+    name:
+      - htop
+      - tmux
+      - tree
+      - speedtest-cli
+    state: present
+
+

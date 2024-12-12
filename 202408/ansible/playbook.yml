@@ -1,0 +1,17 @@
+---
+- hosts: all
+
+  tasks:
+    - include_role:
+        name: 2PRecuperatorio
+    - include_role:
+        name: Alta_Usuarios_Banez
+    - include_role:
+        name: Sudoers_Banez
+    - include_role:
+        name: Instala-tools_Banez   
+
+    - name: "Otra tarea"
+      debug:
+        msg: "Despues de la ejecucion del rol"
+

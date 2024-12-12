@@ -1,0 +1,11 @@
+---
+# tasks file for Sudoers_Banez
+
+- name: "Agregamos al grupo GProfesores para que ejecute sudo sin clave"
+  become: yes
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    line: '%GProfesores ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
+
